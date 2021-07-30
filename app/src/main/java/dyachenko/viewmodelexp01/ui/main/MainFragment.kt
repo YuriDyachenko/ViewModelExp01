@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import dyachenko.viewmodelexp01.MainActivity
 import dyachenko.viewmodelexp01.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
@@ -44,6 +45,11 @@ class MainFragment : Fragment() {
     private fun renderData(data: Int?) = with(binding) {
         val text = "$TITLE$data"
         message.text = text
+
+        if (data == 3) {
+            val context = activity as MainActivity
+            context.recreate()
+        }
     }
 
     private fun initViews() = with(binding) {
